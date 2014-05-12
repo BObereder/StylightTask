@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E812D0521CA4A65BFB9A8D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3001A649833F497A83B339EC /* libPods.a */; };
 		C3BC59D31920E866009AA65B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59D21920E866009AA65B /* Foundation.framework */; };
 		C3BC59D51920E866009AA65B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59D41920E866009AA65B /* CoreGraphics.framework */; };
 		C3BC59D71920E866009AA65B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59D61920E866009AA65B /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1115FB38E91B40CB9E5A7A15 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		3001A649833F497A83B339EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BC59CF1920E866009AA65B /* StylightTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StylightTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BC59D21920E866009AA65B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3BC59D41920E866009AA65B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +66,7 @@
 				C3BC59D51920E866009AA65B /* CoreGraphics.framework in Frameworks */,
 				C3BC59D71920E866009AA65B /* UIKit.framework in Frameworks */,
 				C3BC59D31920E866009AA65B /* Foundation.framework in Frameworks */,
+				8E812D0521CA4A65BFB9A8D2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +90,7 @@
 				C3BC59F71920E866009AA65B /* StylightTaskTests */,
 				C3BC59D11920E866009AA65B /* Frameworks */,
 				C3BC59D01920E866009AA65B /* Products */,
+				1115FB38E91B40CB9E5A7A15 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +110,7 @@
 				C3BC59D41920E866009AA65B /* CoreGraphics.framework */,
 				C3BC59D61920E866009AA65B /* UIKit.framework */,
 				C3BC59F11920E866009AA65B /* XCTest.framework */,
+				3001A649833F497A83B339EC /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +118,11 @@
 		C3BC59D81920E866009AA65B /* StylightTask */ = {
 			isa = PBXGroup;
 			children = (
+				C3BC5A0B1920EB57009AA65B /* Resources */,
+				C3BC5A0A1920EB4E009AA65B /* Categories */,
+				C3BC5A091920EB3D009AA65B /* Services */,
+				C3BC5A081920EB13009AA65B /* Model */,
+				C3BC5A071920EB0D009AA65B /* ViewControllers */,
 				C3BC59E11920E866009AA65B /* STLAppDelegate.h */,
 				C3BC59E21920E866009AA65B /* STLAppDelegate.m */,
 				C3BC59E41920E866009AA65B /* Main.storyboard */,
@@ -152,6 +163,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C3BC5A071920EB0D009AA65B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C3BC5A081920EB13009AA65B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3BC5A091920EB3D009AA65B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C3BC5A0A1920EB4E009AA65B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		C3BC5A0B1920EB57009AA65B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3BC5A011920E866009AA65B /* Build configuration list for PBXNativeTarget "StylightTask" */;
 			buildPhases = (
+				93EB2EE43C22468384548A0F /* Check Pods Manifest.lock */,
 				C3BC59CB1920E866009AA65B /* Sources */,
 				C3BC59CC1920E866009AA65B /* Frameworks */,
 				C3BC59CD1920E866009AA65B /* Resources */,
+				E58285F95705425CAE763D0A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,6 +292,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93EB2EE43C22468384548A0F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E58285F95705425CAE763D0A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C3BC59CB1920E866009AA65B /* Sources */ = {
@@ -374,6 +455,7 @@
 		};
 		C3BC5A021920E866009AA65B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1115FB38E91B40CB9E5A7A15 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -387,6 +469,7 @@
 		};
 		C3BC5A031920E866009AA65B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1115FB38E91B40CB9E5A7A15 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -457,6 +540,7 @@
 				C3BC5A031920E866009AA65B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3BC5A041920E866009AA65B /* Build configuration list for PBXNativeTarget "StylightTaskTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +549,7 @@
 				C3BC5A061920E866009AA65B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
