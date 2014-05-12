@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3BC59D31920E866009AA65B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59D21920E866009AA65B /* Foundation.framework */; };
+		C3BC59D51920E866009AA65B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59D41920E866009AA65B /* CoreGraphics.framework */; };
+		C3BC59D71920E866009AA65B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59D61920E866009AA65B /* UIKit.framework */; };
+		C3BC59DD1920E866009AA65B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3BC59DB1920E866009AA65B /* InfoPlist.strings */; };
+		C3BC59DF1920E866009AA65B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC59DE1920E866009AA65B /* main.m */; };
+		C3BC59E31920E866009AA65B /* STLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC59E21920E866009AA65B /* STLAppDelegate.m */; };
+		C3BC59E61920E866009AA65B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3BC59E41920E866009AA65B /* Main.storyboard */; };
+		C3BC59E91920E866009AA65B /* STLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC59E81920E866009AA65B /* STLViewController.m */; };
+		C3BC59EB1920E866009AA65B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3BC59EA1920E866009AA65B /* Images.xcassets */; };
+		C3BC59F21920E866009AA65B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59F11920E866009AA65B /* XCTest.framework */; };
+		C3BC59F31920E866009AA65B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59D21920E866009AA65B /* Foundation.framework */; };
+		C3BC59F41920E866009AA65B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC59D61920E866009AA65B /* UIKit.framework */; };
+		C3BC59FC1920E866009AA65B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3BC59FA1920E866009AA65B /* InfoPlist.strings */; };
+		C3BC59FE1920E866009AA65B /* StylightTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC59FD1920E866009AA65B /* StylightTaskTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3BC59F51920E866009AA65B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BC59C71920E866009AA65B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3BC59CE1920E866009AA65B;
+			remoteInfo = StylightTask;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C3BC59CF1920E866009AA65B /* StylightTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StylightTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3BC59D21920E866009AA65B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3BC59D41920E866009AA65B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C3BC59D61920E866009AA65B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C3BC59DA1920E866009AA65B /* StylightTask-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StylightTask-Info.plist"; sourceTree = "<group>"; };
+		C3BC59DC1920E866009AA65B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3BC59DE1920E866009AA65B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3BC59E01920E866009AA65B /* StylightTask-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StylightTask-Prefix.pch"; sourceTree = "<group>"; };
+		C3BC59E11920E866009AA65B /* STLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STLAppDelegate.h; sourceTree = "<group>"; };
+		C3BC59E21920E866009AA65B /* STLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STLAppDelegate.m; sourceTree = "<group>"; };
+		C3BC59E51920E866009AA65B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C3BC59E71920E866009AA65B /* STLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STLViewController.h; sourceTree = "<group>"; };
+		C3BC59E81920E866009AA65B /* STLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STLViewController.m; sourceTree = "<group>"; };
+		C3BC59EA1920E866009AA65B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C3BC59F01920E866009AA65B /* StylightTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StylightTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3BC59F11920E866009AA65B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C3BC59F91920E866009AA65B /* StylightTaskTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StylightTaskTests-Info.plist"; sourceTree = "<group>"; };
+		C3BC59FB1920E866009AA65B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3BC59FD1920E866009AA65B /* StylightTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StylightTaskTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3BC59CC1920E866009AA65B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3BC59D51920E866009AA65B /* CoreGraphics.framework in Frameworks */,
+				C3BC59D71920E866009AA65B /* UIKit.framework in Frameworks */,
+				C3BC59D31920E866009AA65B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3BC59ED1920E866009AA65B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3BC59F21920E866009AA65B /* XCTest.framework in Frameworks */,
+				C3BC59F41920E866009AA65B /* UIKit.framework in Frameworks */,
+				C3BC59F31920E866009AA65B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3BC59C61920E866009AA65B = {
+			isa = PBXGroup;
+			children = (
+				C3BC59D81920E866009AA65B /* StylightTask */,
+				C3BC59F71920E866009AA65B /* StylightTaskTests */,
+				C3BC59D11920E866009AA65B /* Frameworks */,
+				C3BC59D01920E866009AA65B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3BC59D01920E866009AA65B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3BC59CF1920E866009AA65B /* StylightTask.app */,
+				C3BC59F01920E866009AA65B /* StylightTaskTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3BC59D11920E866009AA65B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3BC59D21920E866009AA65B /* Foundation.framework */,
+				C3BC59D41920E866009AA65B /* CoreGraphics.framework */,
+				C3BC59D61920E866009AA65B /* UIKit.framework */,
+				C3BC59F11920E866009AA65B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3BC59D81920E866009AA65B /* StylightTask */ = {
+			isa = PBXGroup;
+			children = (
+				C3BC59E11920E866009AA65B /* STLAppDelegate.h */,
+				C3BC59E21920E866009AA65B /* STLAppDelegate.m */,
+				C3BC59E41920E866009AA65B /* Main.storyboard */,
+				C3BC59E71920E866009AA65B /* STLViewController.h */,
+				C3BC59E81920E866009AA65B /* STLViewController.m */,
+				C3BC59EA1920E866009AA65B /* Images.xcassets */,
+				C3BC59D91920E866009AA65B /* Supporting Files */,
+			);
+			path = StylightTask;
+			sourceTree = "<group>";
+		};
+		C3BC59D91920E866009AA65B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3BC59DA1920E866009AA65B /* StylightTask-Info.plist */,
+				C3BC59DB1920E866009AA65B /* InfoPlist.strings */,
+				C3BC59DE1920E866009AA65B /* main.m */,
+				C3BC59E01920E866009AA65B /* StylightTask-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3BC59F71920E866009AA65B /* StylightTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3BC59FD1920E866009AA65B /* StylightTaskTests.m */,
+				C3BC59F81920E866009AA65B /* Supporting Files */,
+			);
+			path = StylightTaskTests;
+			sourceTree = "<group>";
+		};
+		C3BC59F81920E866009AA65B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3BC59F91920E866009AA65B /* StylightTaskTests-Info.plist */,
+				C3BC59FA1920E866009AA65B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3BC59CE1920E866009AA65B /* StylightTask */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3BC5A011920E866009AA65B /* Build configuration list for PBXNativeTarget "StylightTask" */;
+			buildPhases = (
+				C3BC59CB1920E866009AA65B /* Sources */,
+				C3BC59CC1920E866009AA65B /* Frameworks */,
+				C3BC59CD1920E866009AA65B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StylightTask;
+			productName = StylightTask;
+			productReference = C3BC59CF1920E866009AA65B /* StylightTask.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3BC59EF1920E866009AA65B /* StylightTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3BC5A041920E866009AA65B /* Build configuration list for PBXNativeTarget "StylightTaskTests" */;
+			buildPhases = (
+				C3BC59EC1920E866009AA65B /* Sources */,
+				C3BC59ED1920E866009AA65B /* Frameworks */,
+				C3BC59EE1920E866009AA65B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3BC59F61920E866009AA65B /* PBXTargetDependency */,
+			);
+			name = StylightTaskTests;
+			productName = StylightTaskTests;
+			productReference = C3BC59F01920E866009AA65B /* StylightTaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3BC59C71920E866009AA65B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = STL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Bernhard Obereder";
+				TargetAttributes = {
+					C3BC59EF1920E866009AA65B = {
+						TestTargetID = C3BC59CE1920E866009AA65B;
+					};
+				};
+			};
+			buildConfigurationList = C3BC59CA1920E866009AA65B /* Build configuration list for PBXProject "StylightTask" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3BC59C61920E866009AA65B;
+			productRefGroup = C3BC59D01920E866009AA65B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3BC59CE1920E866009AA65B /* StylightTask */,
+				C3BC59EF1920E866009AA65B /* StylightTaskTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3BC59CD1920E866009AA65B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3BC59EB1920E866009AA65B /* Images.xcassets in Resources */,
+				C3BC59DD1920E866009AA65B /* InfoPlist.strings in Resources */,
+				C3BC59E61920E866009AA65B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3BC59EE1920E866009AA65B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3BC59FC1920E866009AA65B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3BC59CB1920E866009AA65B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3BC59E91920E866009AA65B /* STLViewController.m in Sources */,
+				C3BC59E31920E866009AA65B /* STLAppDelegate.m in Sources */,
+				C3BC59DF1920E866009AA65B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3BC59EC1920E866009AA65B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3BC59FE1920E866009AA65B /* StylightTaskTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3BC59F61920E866009AA65B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3BC59CE1920E866009AA65B /* StylightTask */;
+			targetProxy = C3BC59F51920E866009AA65B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3BC59DB1920E866009AA65B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3BC59DC1920E866009AA65B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3BC59E41920E866009AA65B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3BC59E51920E866009AA65B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C3BC59FA1920E866009AA65B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3BC59FB1920E866009AA65B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3BC59FF1920E866009AA65B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C3BC5A001920E866009AA65B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3BC5A021920E866009AA65B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StylightTask/StylightTask-Prefix.pch";
+				INFOPLIST_FILE = "StylightTask/StylightTask-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C3BC5A031920E866009AA65B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StylightTask/StylightTask-Prefix.pch";
+				INFOPLIST_FILE = "StylightTask/StylightTask-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C3BC5A051920E866009AA65B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StylightTask.app/StylightTask";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StylightTask/StylightTask-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "StylightTaskTests/StylightTaskTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C3BC5A061920E866009AA65B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StylightTask.app/StylightTask";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StylightTask/StylightTask-Prefix.pch";
+				INFOPLIST_FILE = "StylightTaskTests/StylightTaskTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3BC59CA1920E866009AA65B /* Build configuration list for PBXProject "StylightTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3BC59FF1920E866009AA65B /* Debug */,
+				C3BC5A001920E866009AA65B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3BC5A011920E866009AA65B /* Build configuration list for PBXNativeTarget "StylightTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3BC5A021920E866009AA65B /* Debug */,
+				C3BC5A031920E866009AA65B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C3BC5A041920E866009AA65B /* Build configuration list for PBXNativeTarget "StylightTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3BC5A051920E866009AA65B /* Debug */,
+				C3BC5A061920E866009AA65B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3BC59C71920E866009AA65B /* Project object */;
+}
