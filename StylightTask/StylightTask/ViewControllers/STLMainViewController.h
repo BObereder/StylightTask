@@ -1,5 +1,5 @@
 //
-//  STLViewController.h
+//  STLMainViewController.h
 //  StylightTask
 //
 //  Created by Bernhard Obereder on 12.05.14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface STLViewController : UIViewController
+@interface STLMainViewController : UICollectionViewController
 
 @end
