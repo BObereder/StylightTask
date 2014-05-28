@@ -10,22 +10,44 @@
 #import "STLWebService.h"
 #import "STLItem.h"
 #import "UIImageView+AFNetworking.h"
+#import "STLCollectionViewCell.h"
 
-@interface STLMainViewController ()<UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
+
+@interface STLMainViewController ()<NSFetchedResultsControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray *objectChanges;
+@property (strong, nonatomic) NSMutableArray *sectionChanges;
 
 @end
 
 @implementation STLMainViewController
+{
 
+    
+}
 
+#pragma mark - Setter/Getter
+
+-(NSMutableArray *)objectChanges{
+
+    if (!_objectChanges) _objectChanges = [NSMutableArray array];
+    return _objectChanges;
+
+}
+
+-(NSMutableArray *)sectionChanges{
+
+    if (!_sectionChanges) _sectionChanges = [NSMutableArray array];
+    return _sectionChanges;
+}
+
+#pragma mark - Systemmethods
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-   
+
     //check if there are persistet items
     NSArray *array = [STLItem MR_findAllInContext:[NSManagedObjectContext MR_defaultContext]];
     
@@ -58,53 +80,27 @@
 }
 
 
-
 #pragma mark -
-#pragma mark - Table view data source
+#pragma mark - UICollectionView Datasource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return self.fetchedResultsController.sections.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     
     // Return the number of rows in the section.
     id sectionInfo = [self.fetchedResultsController.sections objectAtIndexedSubscript:section];
-    return [sectionInfo numberOfObjects];
-}
+    return [sectionInfo numberOfObjects];}
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"STLCell" forIndexPath:indexPath];
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     
-    [self configureCell:cell atIndexPath:indexPath];
-    return cell;
+    return self.fetchedResultsController.sections.count;
 }
 
-- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    // Configure the cell...
-    STLItem *dbItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = dbItem.name;
-    cell.detailTextLabel.text = dbItem.creator;
-    [cell.imageView setImageWithURL:[NSURL URLWithString:dbItem.imageURL] placeholderImage:[UIImage imageNamed:@"stylight.jpg"]];
-}
-
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+    STLCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"STLCollectionViewCell" forIndexPath:indexPath];
     
-    if (indexPath.row == self.fetchedResultsController.fetchedObjects.count - 4) {
+    [self configureCollectionViewCell:cell atIndexPath:indexPath];
+    
+    if (indexPath.row == self.fetchedResultsController.fetchedObjects.count - 5) {
         
         STLWebService *webservice = [STLWebService sharedService];
         
@@ -112,66 +108,180 @@
         
         [self loadItemsForPage:pageToLoad];
     }
+    
+    return cell;
+}
+
+- (void)configureCollectionViewCell:(STLCollectionViewCell*)cell atIndexPath:(NSIndexPath*)indexPath {
+    
+    // Configure the cell...
+    STLItem *dbItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.descriptionTextView.text = dbItem.name;
+    
+    if (dbItem.creator) {
+        cell.creatorLabel.text = [NSString stringWithFormat:@"by %@",dbItem.creator ];
+    }
+    else{
+        cell.creatorLabel.text = nil;
+    }
+    
+    
+    [cell.imageView setImageWithURL:[NSURL URLWithString:dbItem.imageURL] placeholderImage:[UIImage imageNamed:@"stylight.jpg"]];
 }
 
 
 #pragma mark -
 #pragma mark - NSFetchedResultsController Delegate
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView beginUpdates];
-}
+#pragma mark - Fetched results controller
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+{
+    
+    NSMutableDictionary *change = [NSMutableDictionary new];
     
     switch(type) {
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                                  withRowAnimation:UITableViewRowAnimationFade];
+            change[@(type)] = @(sectionIndex);
             break;
-            
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                                  withRowAnimation:UITableViewRowAnimationFade];
+            change[@(type)] = @(sectionIndex);
             break;
     }
+    
+    [self.sectionChanges addObject:change];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath {
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
     
-    UITableView *tableView = self.tableView;
-    
-    switch(type) {
-            
+    NSMutableDictionary *change = [NSMutableDictionary new];
+    switch(type)
+    {
         case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
+            change[@(type)] = newIndexPath;
             break;
-            
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
+            change[@(type)] = indexPath;
             break;
-            
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
-                    atIndexPath:indexPath];
+            change[@(type)] = indexPath;
             break;
-            
         case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
+            change[@(type)] = @[indexPath, newIndexPath];
             break;
     }
+    [self.objectChanges addObject:change];
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    if ([self.sectionChanges count] > 0)
+    {
+        [self.collectionView performBatchUpdates:^{
+            
+            for (NSDictionary *change in self.sectionChanges)
+            {
+                [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
+                    
+                    NSFetchedResultsChangeType type = [key unsignedIntegerValue];
+                    switch (type)
+                    {
+                        case NSFetchedResultsChangeInsert:
+                            [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                            break;
+                        case NSFetchedResultsChangeDelete:
+                            [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                            break;
+                        case NSFetchedResultsChangeUpdate:
+                            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                            break;
+                    }
+                }];
+            }
+        } completion:nil];
+    }
+    
+    if ([self.objectChanges count] > 0 && [self.sectionChanges count] == 0)
+    {
+        
+        if ([self shouldReloadCollectionViewToPreventKnownIssue] || self.collectionView.window == nil) {
+            // This is to prevent a bug in UICollectionView from occurring.
+            // The bug presents itself when inserting the first object or deleting the last object in a collection view.
+            // http://stackoverflow.com/questions/12611292/uicollectionview-assertion-failure
+            // This code should be removed once the bug has been fixed, it is tracked in OpenRadar
+            // http://openradar.appspot.com/12954582
+            [self.collectionView reloadData];
+            
+        } else {
+            
+            [self.collectionView performBatchUpdates:^{
+                
+                for (NSDictionary *change in self.objectChanges)
+                {
+                    [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
+                        
+                        NSFetchedResultsChangeType type = [key unsignedIntegerValue];
+                        switch (type)
+                        {
+                            case NSFetchedResultsChangeInsert:
+                                [self.collectionView insertItemsAtIndexPaths:@[obj]];
+                                break;
+                            case NSFetchedResultsChangeDelete:
+                                [self.collectionView deleteItemsAtIndexPaths:@[obj]];
+                                break;
+                            case NSFetchedResultsChangeUpdate:
+                                [self.collectionView reloadItemsAtIndexPaths:@[obj]];
+                                break;
+                            case NSFetchedResultsChangeMove:
+                                [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
+                                break;
+                        }
+                    }];
+                }
+            } completion:nil];
+        }
+    }
+    
+    [self.sectionChanges removeAllObjects];
+    [self.objectChanges removeAllObjects];
+}
+
+- (BOOL)shouldReloadCollectionViewToPreventKnownIssue {
+    __block BOOL shouldReload = NO;
+    for (NSDictionary *change in self.objectChanges) {
+        [change enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            NSFetchedResultsChangeType type = [key unsignedIntegerValue];
+            NSIndexPath *indexPath = obj;
+            switch (type) {
+                case NSFetchedResultsChangeInsert:
+                    if ([self.collectionView numberOfItemsInSection:indexPath.section] == 0) {
+                        shouldReload = YES;
+                    } else {
+                        shouldReload = NO;
+                    }
+                    break;
+                case NSFetchedResultsChangeDelete:
+                    if ([self.collectionView numberOfItemsInSection:indexPath.section] == 1) {
+                        shouldReload = YES;
+                    } else {
+                        shouldReload = NO;
+                    }
+                    break;
+                case NSFetchedResultsChangeUpdate:
+                    shouldReload = NO;
+                    break;
+                case NSFetchedResultsChangeMove:
+                    shouldReload = NO;
+                    break;
+            }
+        }];
+    }
+    
+    return shouldReload;
 }
 
 @end
