@@ -8,6 +8,7 @@ extern const struct STLItemAttributes {
 	__unsafe_unretained NSString *creator;
 	__unsafe_unretained NSString *imageURL;
 	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *timeStamp;
 } STLItemAttributes;
 
 extern const struct STLItemRelationships {
@@ -15,6 +16,7 @@ extern const struct STLItemRelationships {
 
 extern const struct STLItemFetchedProperties {
 } STLItemFetchedProperties;
+
 
 
 
@@ -64,6 +66,16 @@ extern const struct STLItemFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSDate* timeStamp;
+
+
+
+//- (BOOL)validateTimeStamp:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 
 @end
 
@@ -88,6 +100,12 @@ extern const struct STLItemFetchedProperties {
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+
+
+
+- (NSDate*)primitiveTimeStamp;
+- (void)setPrimitiveTimeStamp:(NSDate*)value;
 
 
 

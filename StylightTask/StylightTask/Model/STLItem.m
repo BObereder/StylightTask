@@ -10,6 +10,4 @@
 
 @implementation STLItem
 
-// Custom logic goes here.
-
 @end

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+    <entity name="STLItem" representedClassName="STLItem" syncable="YES">
+        <attribute name="creator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" attributeType="Date" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="STLItem" positionX="-45" positionY="-9" width="128" height="103"/>
+    </elements>
 </model>

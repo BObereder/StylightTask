@@ -7,6 +7,7 @@ const struct STLItemAttributes STLItemAttributes = {
 	.creator = @"creator",
 	.imageURL = @"imageURL",
 	.name = @"name",
+	.timeStamp = @"timeStamp",
 };
 
 const struct STLItemRelationships STLItemRelationships = {
@@ -63,6 +64,13 @@ const struct STLItemFetchedProperties STLItemFetchedProperties = {
 
 
 @dynamic name;
+
+
+
+
+
+
+@dynamic timeStamp;
 
 
 
