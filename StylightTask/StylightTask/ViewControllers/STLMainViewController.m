@@ -94,6 +94,14 @@
     return self.fetchedResultsController.sections.count;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Adjust cell size for orientation
+    return CGSizeMake(250, self.view.frame.size.height) ;
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     STLCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"STLCollectionViewCell" forIndexPath:indexPath];
