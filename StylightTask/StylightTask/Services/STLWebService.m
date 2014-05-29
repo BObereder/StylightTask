@@ -129,6 +129,11 @@ NSString* const STLAPIKey = @"D13A5A5A0A3602477A513E02691A8458";
              completionBlock:^(NSError *error, id data)
             {
                 if (!error) {
+                    
+                    //persist boards and products in core data
+                    //for more complexe model objects this could be done in the serializer
+                    //for this example for the sake of complexity it was done here
+                    
                     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
                         
                         NSArray *items = data[@"items"];

@@ -14,6 +14,7 @@
 
 
 @interface STLMainViewController ()<NSFetchedResultsControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *objectChanges;
@@ -29,17 +30,40 @@
 
 #pragma mark - Setter/Getter
 
--(NSMutableArray *)objectChanges{
+-(NSMutableArray *)objectChanges
+{
 
-    if (!_objectChanges) _objectChanges = [NSMutableArray array];
+    if (!_objectChanges)
+    {
+        _objectChanges = [NSMutableArray array];
+    }
+    
     return _objectChanges;
 
 }
 
--(NSMutableArray *)sectionChanges{
+-(NSMutableArray *)sectionChanges
+{
 
-    if (!_sectionChanges) _sectionChanges = [NSMutableArray array];
+    if (!_sectionChanges)
+    {
+        _sectionChanges = [NSMutableArray array];
+    }
+    
     return _sectionChanges;
+}
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (!_fetchedResultsController)
+    {
+        _fetchedResultsController = [STLItem MR_fetchAllGroupedBy:nil
+                                                    withPredicate:[NSPredicate predicateWithValue:YES]
+                                                         sortedBy:@"timeStamp"
+                                                        ascending:YES
+                                                         delegate:self
+                                                        inContext:[NSManagedObjectContext MR_defaultContext]];    }
+    
+    return _fetchedResultsController;
 }
 
 #pragma mark - Systemmethods
@@ -51,17 +75,11 @@
     //check if there are persistet items
     NSArray *array = [STLItem MR_findAllInContext:[NSManagedObjectContext MR_defaultContext]];
     
-    if (array.count ==0) {
+    if (array.count ==0)
+    {
         [self loadItemsForPage:0];
     }
     
-    //setup fetchedResultsController
-    self.fetchedResultsController = [STLItem MR_fetchAllGroupedBy:nil
-                                                       withPredicate:[NSPredicate predicateWithValue:YES]
-                                                            sortedBy:@"timeStamp"
-                                                           ascending:YES
-                                                            delegate:self
-                                                           inContext:[NSManagedObjectContext MR_defaultContext]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,7 +98,6 @@
 }
 
 
-#pragma mark -
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
@@ -108,12 +125,10 @@
     
     [self configureCollectionViewCell:cell atIndexPath:indexPath];
     
-    if (indexPath.row == self.fetchedResultsController.fetchedObjects.count - 5) {
-        
+    if (indexPath.row == self.fetchedResultsController.fetchedObjects.count - 5)
+    {
         STLWebService *webservice = [STLWebService sharedService];
-        
         int pageToLoad = (self.fetchedResultsController.fetchedObjects.count / webservice.batchsize)+1;
-        
         [self loadItemsForPage:pageToLoad];
     }
     
@@ -138,10 +153,8 @@
 }
 
 
-#pragma mark -
-#pragma mark - NSFetchedResultsController Delegate
 
-#pragma mark - Fetched results controller
+#pragma mark - NSFetchedResultsController Delegate
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
@@ -149,10 +162,12 @@
     
     NSMutableDictionary *change = [NSMutableDictionary new];
     
-    switch(type) {
+    switch(type)
+    {
         case NSFetchedResultsChangeInsert:
             change[@(type)] = @(sectionIndex);
             break;
+            
         case NSFetchedResultsChangeDelete:
             change[@(type)] = @(sectionIndex);
             break;
@@ -172,12 +187,15 @@
         case NSFetchedResultsChangeInsert:
             change[@(type)] = newIndexPath;
             break;
+            
         case NSFetchedResultsChangeDelete:
             change[@(type)] = indexPath;
             break;
+            
         case NSFetchedResultsChangeUpdate:
             change[@(type)] = indexPath;
             break;
+            
         case NSFetchedResultsChangeMove:
             change[@(type)] = @[indexPath, newIndexPath];
             break;
