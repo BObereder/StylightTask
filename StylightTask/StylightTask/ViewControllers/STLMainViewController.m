@@ -23,28 +23,22 @@
 @end
 
 @implementation STLMainViewController
-{
 
-    
-}
 
 #pragma mark - Setter/Getter
 
 -(NSMutableArray *)objectChanges
 {
-
     if (!_objectChanges)
     {
         _objectChanges = [NSMutableArray array];
     }
     
     return _objectChanges;
-
 }
 
 -(NSMutableArray *)sectionChanges
 {
-
     if (!_sectionChanges)
     {
         _sectionChanges = [NSMutableArray array];
@@ -79,7 +73,6 @@
     {
         [self loadItemsForPage:0];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,8 +81,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadItemsForPage:(int)page{
-
+- (void)loadItemsForPage:(int)page
+{
     STLWebService *webService = [STLWebService sharedService];
     [webService retrievBlocksForPage:page
                  WithCompletionBlock:^(NSError *error) {
@@ -100,14 +93,15 @@
 
 #pragma mark - UICollectionView Datasource
 
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section
+{
     // Return the number of rows in the section.
     id sectionInfo = [self.fetchedResultsController.sections objectAtIndexedSubscript:section];
-    return [sectionInfo numberOfObjects];}
+    return [sectionInfo numberOfObjects];
+}
 
-- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
-    
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView
+{
     return self.fetchedResultsController.sections.count;
 }
 
@@ -119,8 +113,8 @@
     return CGSizeMake(250, self.view.frame.size.height) ;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     STLCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"STLCollectionViewCell" forIndexPath:indexPath];
     
     [self configureCollectionViewCell:cell atIndexPath:indexPath];
@@ -135,8 +129,8 @@
     return cell;
 }
 
-- (void)configureCollectionViewCell:(STLCollectionViewCell*)cell atIndexPath:(NSIndexPath*)indexPath {
-    
+- (void)configureCollectionViewCell:(STLCollectionViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+{
     // Configure the cell...
     STLItem *dbItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.descriptionTextView.text = dbItem.name;
@@ -148,15 +142,10 @@
         cell.creatorLabel.text = nil;
     }
     
-    
     [cell.imageView setImageWithURL:[NSURL URLWithString:dbItem.imageURL] placeholderImage:[UIImage imageNamed:@"stylight.jpg"]];
 }
 
-
-
 #pragma mark - NSFetchedResultsController Delegate
-
-
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
