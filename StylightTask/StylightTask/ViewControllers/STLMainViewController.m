@@ -60,9 +60,9 @@
                                                     withPredicate:[NSPredicate predicateWithValue:YES]
                                                          sortedBy:@"timeStamp"
                                                         ascending:YES
-                                                         delegate:self
-                                                        inContext:[NSManagedObjectContext MR_defaultContext]];    }
+                                                         delegate:self];    }
     
+
     return _fetchedResultsController;
 }
 
