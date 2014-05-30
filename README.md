@@ -9,6 +9,7 @@ This would only be necessary if the app would have a refresh option or something
 One could implement such a restriction by hashing and saving the URL of the API call with a timestamp and check
 if it was already called in the last 15 min.
 
-I am looking forward to meet you guys, and hopefully be part of your team.
+I am looking forward to meet you guys, and hopefully be part of your team
+
 best regards
 Bernhard
